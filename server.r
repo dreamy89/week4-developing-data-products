@@ -1,18 +1,7 @@
 
 #Specify and Load Libraries
-list.of.packages <- c(
-  "shiny",
-  "ggplot2",
-  "dplyr"
-)
-
-###Install/load required packages
-new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages)
-lapply(list.of.packages, require, character.only = TRUE)
-
-#Set seed
-set.seed(123)
+library(ggplot2)
+library(dplyr)
 
 #Read data
 bushfire_nsw <- read.csv("http://globalfiredata.org/pages/wp-content/uploads/2020/01/Table_MODIS_fire_counts_2002_2019_NSW_per_fire_year.csv")
@@ -120,4 +109,4 @@ for (i in 1:(length(names(bushfire_all))-2)){
   
 }
 
-shinyApp(ui = ui, server = server)
+#shinyApp(ui = ui, server = server)
